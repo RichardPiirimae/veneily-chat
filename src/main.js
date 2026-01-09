@@ -12,7 +12,8 @@ if (!webhookUrl) {
   webhookUrl,
   mode: 'fullscreen',
   target: '#n8n-chat',
-  showWelcomeScreen: true,
+
+  showWelcomeScreen: false,
   loadPreviousSession: true,
 
   initialMessages: [],
@@ -21,10 +22,10 @@ if (!webhookUrl) {
     en: {
       title: 'Asiakaspalvelu 💬',
       subtitle: 'Kysy veneilytarvikkeista, toimituksesta tai palautuksista.',
-      getStarted: 'Aloita uusi keskustelu',
       inputPlaceholder: 'Kirjoita kysymyksesi…',
       footer: '',
     },
   },
 });
+
 }
