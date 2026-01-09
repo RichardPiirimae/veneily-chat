@@ -9,13 +9,15 @@ if (!webhookUrl) {
     '<div style="padding:16px;font-family:system-ui">Missing env: VITE_N8N_WEBHOOK_URL</div>';
 } else {
   createChat({
-    webhookUrl,
-    mode: 'fullscreen',
-    target: '#n8n-chat',
-    showWelcomeScreen: false,
-    initialMessages: [],
-    loadPreviousSession: true,
-    // Kui sul on n8n Chat Triggeris streaming response ON, pane true:
-    enableStreaming: false,
-  });
+  webhookUrl,
+  mode: 'fullscreen',
+  target: '#n8n-chat',
+
+  // eemaldab selle "Hi there!" welcome vaate
+  showWelcomeScreen: false,
+  initialMessages: [],
+
+  loadPreviousSession: true,
+  enableStreaming: false,
+});
 }
