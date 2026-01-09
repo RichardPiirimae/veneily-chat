@@ -12,12 +12,19 @@ if (!webhookUrl) {
   webhookUrl,
   mode: 'fullscreen',
   target: '#n8n-chat',
+  showWelcomeScreen: true,
+  loadPreviousSession: true,
 
-  // eemaldab selle "Hi there!" welcome vaate
-  showWelcomeScreen: false,
   initialMessages: [],
 
-  loadPreviousSession: true,
-  enableStreaming: false,
+  i18n: {
+    en: {
+      title: 'Asiakaspalvelu 💬',
+      subtitle: 'Kysy veneilytarvikkeista, toimituksesta tai palautuksista.',
+      getStarted: 'Aloita uusi keskustelu',
+      inputPlaceholder: 'Kirjoita kysymyksesi…',
+      footer: '',
+    },
+  },
 });
 }
