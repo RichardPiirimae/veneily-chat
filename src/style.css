@@ -1,5 +1,173 @@
+/* Fullscreen container */
 html, body, #n8n-chat {
   width: 100%;
   height: 100%;
   margin: 0;
+}
+
+/* Background + typography */
+:root {
+  --bg-0: #0b1020;
+  --bg-1: #0f1730;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel-2: rgba(255, 255, 255, 0.10);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.68);
+  --border: rgba(255, 255, 255, 0.10);
+
+  /* Brand */
+  --brand: #22c55e;          /* green */
+  --brand-2: #06b6d4;        /* cyan */
+  --danger: #ef4444;
+
+  /* Layout */
+  --radius: 18px;
+  --radius-sm: 14px;
+  --shadow: 0 20px 60px rgba(0,0,0,.45);
+
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+}
+
+body {
+  background: radial-gradient(1200px 800px at 20% 0%, rgba(34,197,94,.18), transparent 55%),
+              radial-gradient(900px 700px at 90% 20%, rgba(6,182,212,.14), transparent 50%),
+              linear-gradient(180deg, var(--bg-0), var(--bg-1));
+  color: var(--text);
+}
+
+/* n8n chat theme via CSS vars */
+:root {
+  --chat--spacing: 14px;
+  --chat--border-radius: var(--radius);
+  --chat--transition-duration: 0.18s;
+
+  --chat--color-dark: rgba(255,255,255,0.90);
+  --chat--color-light: rgba(255,255,255,0.06);
+  --chat--color-white: rgba(255,255,255,0.10);
+  --chat--color-disabled: rgba(255,255,255,0.35);
+
+  /* Header */
+  --chat--header--background: transparent;
+  --chat--header--color: var(--text);
+  --chat--header--padding: 22px 20px 14px;
+  --chat--header-height: auto;
+
+  /* Messages */
+  --chat--message--font-size: 15px;
+  --chat--message-line-height: 1.55;
+
+  --chat--message--bot--background: rgba(255,255,255,0.07);
+  --chat--message--bot--color: var(--text);
+  --chat--message--bot--border: 1px solid var(--border);
+
+  --chat--message--user--background: linear-gradient(135deg, rgba(34,197,94,.90), rgba(6,182,212,.70));
+  --chat--message--user--color: #061018;
+  --chat--message--user--border: 1px solid rgba(255,255,255,0.15);
+
+  --chat--message--pre--background: rgba(0,0,0,0.25);
+
+  /* Input */
+  --chat--textarea--height: 52px;
+
+  /* Window sizing (fullscreen still uses container) */
+  --chat--window--width: 100%;
+  --chat--window--height: 100%;
+
+  /* Toggle (not used in fullscreen, but set anyway) */
+  --chat--toggle--background: var(--brand);
+  --chat--toggle--color: #061018;
+  --chat--toggle--size: 62px;
+}
+
+/* Make chat look like a modern centered panel inside fullscreen */
+#n8n-chat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  box-sizing: border-box;
+}
+
+#n8n-chat > * {
+  width: min(980px, 100%);
+  height: min(860px, 100%);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+  overflow: hidden;
+}
+
+/* Subtle top “app bar” look (works with n8n header) */
+.n8n-chat__header,
+[class*="chat__header"] {
+  border-bottom: 1px solid var(--border) !important;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), transparent) !important;
+}
+
+/* Messages area */
+.n8n-chat__messages,
+[class*="chat__messages"] {
+  padding: 18px 18px 8px !important;
+}
+
+/* Bubbles */
+.n8n-chat__message,
+[class*="chat__message"] {
+  border-radius: var(--radius-sm) !important;
+}
+
+/* User bubble a bit “tight” and modern */
+.n8n-chat__message--user,
+[class*="message--user"] {
+  box-shadow: 0 10px 30px rgba(34,197,94,.18) !important;
+}
+
+/* Bot bubble clarity */
+.n8n-chat__message--bot,
+[class*="message--bot"] {
+  box-shadow: 0 10px 30px rgba(0,0,0,.18) !important;
+}
+
+/* Input bar */
+.n8n-chat__footer,
+[class*="chat__footer"] {
+  padding: 14px 16px 18px !important;
+  border-top: 1px solid var(--border) !important;
+  background: linear-gradient(0deg, rgba(255,255,255,0.06), transparent) !important;
+}
+
+textarea,
+.n8n-chat__textarea,
+[class*="chat__textarea"] {
+  background: rgba(255,255,255,0.08) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+  border-radius: 16px !important;
+  padding: 14px 14px !important;
+  outline: none !important;
+}
+
+textarea::placeholder {
+  color: rgba(255,255,255,0.45) !important;
+}
+
+/* Send button */
+button,
+.n8n-chat__send-button,
+[class*="send"] {
+  border-radius: 14px !important;
+}
+
+/* Mobile: use full height */
+@media (max-width: 720px) {
+  #n8n-chat {
+    padding: 0;
+  }
+  #n8n-chat > * {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
 }
