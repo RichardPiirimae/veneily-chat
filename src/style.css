@@ -61,7 +61,7 @@ body {
   --chat--message--bot--border: 1px solid var(--border);
 
   --chat--message--user--background: linear-gradient(135deg, rgba(34,197,94,.90), rgba(6,182,212,.70));
-  --chat--message--user--color: #061018;
+  --chat--message--user--color: #92e093;
   --chat--message--user--border: 1px solid rgba(255,255,255,0.15);
 
   --chat--message--pre--background: rgba(0,0,0,0.25);
